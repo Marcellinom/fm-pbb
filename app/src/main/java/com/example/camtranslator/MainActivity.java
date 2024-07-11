@@ -1,4 +1,4 @@
-package app.marsel.cam_translate;
+package com.example.camtranslator;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +20,8 @@ import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer;
 import com.otaliastudios.cameraview.CameraListener;
 import com.otaliastudios.cameraview.CameraView;
 import com.otaliastudios.cameraview.PictureResult;
+
+import app.marsel.cam_translate.R;
 
 public class MainActivity extends AppCompatActivity {
 

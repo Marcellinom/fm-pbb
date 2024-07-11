@@ -3,23 +3,40 @@ plugins {
 }
 
 android {
+    namespace = "app.marsel.cam_translate"
     compileSdk = 34
+
     defaultConfig {
         applicationId = "app.marsel.cam_translate"
+        minSdk = 24
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-        multiDexEnabled = true
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
     implementation("androidx.appcompat:appcompat:1.1.0")
     implementation("androidx.cardview:cardview:1.0.0")
-    implementation("com.google.android.material:material:1.0.0")
+    implementation(libs.material)
     implementation("androidx.core:core-ktx:1.1.0")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
-    api("com.otaliastudios:cameraview:2.0.0-beta05")
     implementation("com.google.firebase:firebase-ml-natural-language-translate-model:20.0.7")
     implementation("com.google.firebase:firebase-ml-natural-language:22.0.0")
     implementation("com.google.firebase:firebase-ml-natural-language-language-id-model:20.0.7")
@@ -30,4 +47,5 @@ dependencies {
     testImplementation("junit:junit:4.12")
     androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+    api("com.otaliastudios:cameraview:2.7.2")
 }
